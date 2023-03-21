@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="Particles2D" type="CPUParticles2D"]
+lifetime = 0.51
+preprocess = 1.0
+lifetime_randomness = 0.51
+local_coords = false
+direction = Vector2( -1, 0 )
+initial_velocity = 16.67
+scale_amount = 4.0
+color = Color( 1, 0.490196, 0.858824, 1 )
+hue_variation = -0.05
+hue_variation_random = 0.47

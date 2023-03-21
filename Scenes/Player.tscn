@@ -1,0 +1,209 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/UI/FullHearth.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/EmptyHearth.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Level/BackgroundGround.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Level/BackgroundSky.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Level/BackgroundUnderground.png" type="Texture" id=6]
+[ext_resource path="res://Animation/PlayerAnimation.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/Entities/PowerDrop.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/MobileControls.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sprites/Entities/Crown.png" type="Texture" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 55, 131 )
+
+[node name="Player" type="KinematicBody2D" groups=["player"]]
+position = Vector2( 2.832, -6.607 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 10
+script = ExtResource( 1 )
+full_heart = ExtResource( 2 )
+empty_heart = ExtResource( 3 )
+jump_speed = 1000.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2( 0.5, 0.5 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1040, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color( 1, 1, 1, 0.686275 )
+margin_left = 5.49
+margin_top = -19.961
+margin_right = 265.49
+margin_bottom = 120.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = -1
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 1040, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer4"]
+modulate = Color( 1, 1, 1, 0.686275 )
+margin_left = -551.0
+margin_top = -670.0
+margin_right = -291.0
+margin_bottom = -524.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+
+[node name="TextureRect2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer4"]
+modulate = Color( 1, 1, 1, 0.686275 )
+margin_left = -287.0
+margin_top = -1153.0
+margin_right = -27.0
+margin_bottom = -1007.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+
+[node name="TextureRect3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer4"]
+modulate = Color( 1, 1, 1, 0.686275 )
+margin_left = -385.0
+margin_top = -1782.0
+margin_right = -125.0
+margin_bottom = -1636.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1040, 0 )
+
+[node name="TextureRect2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color( 1, 1, 1, 0.686275 )
+margin_left = 5.5
+margin_top = 564.0
+margin_right = 265.5
+margin_bottom = 710.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 6 )
+
+[node name="TextureRect3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color( 1, 1, 1, 0.686275 )
+margin_left = 5.5
+margin_top = 1148.0
+margin_right = 265.5
+margin_bottom = 1294.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 6 )
+
+[node name="TextureRect4" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color( 1, 1, 1, 0.686275 )
+margin_left = 9.3
+margin_top = 1732.0
+margin_right = 269.3
+margin_bottom = 1878.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 6 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.25, 0.25 )
+motion_mirroring = Vector2( 1040, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color( 1, 1, 1, 0.686275 )
+margin_left = 1500.0
+margin_top = -680.0
+margin_right = 1760.0
+margin_bottom = -534.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+
+[node name="TextureRect2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color( 1, 1, 1, 0.686275 )
+margin_left = 1800.0
+margin_top = -1168.0
+margin_right = 2060.0
+margin_bottom = -1022.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+
+[node name="TextureRect3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color( 1, 1, 1, 0.686275 )
+margin_left = 1600.0
+margin_top = -1782.0
+margin_right = 1860.0
+margin_bottom = -1636.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 7 )
+animation = "run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.832, -2.393 )
+shape = SubResource( 1 )
+
+[node name="Camera" type="Camera2D" parent="."]
+rotating = true
+current = true
+smoothing_enabled = true
+script = ExtResource( 8 )
+
+[node name="PassthroughRaycastDownLeft" type="RayCast2D" parent="."]
+position = Vector2( -56, 127 )
+enabled = true
+cast_to = Vector2( 0.335999, 78.214 )
+
+[node name="PassthroughRaycastDownRight" type="RayCast2D" parent="."]
+position = Vector2( 53, 127 )
+enabled = true
+cast_to = Vector2( -0.664001, 78.214 )
+
+[node name="PassthroughRaycastUpRight" type="RayCast2D" parent="."]
+position = Vector2( -55.832, 127 )
+enabled = true
+cast_to = Vector2( 0, -175 )
+
+[node name="PassthroughRaycastUpLeft" type="RayCast2D" parent="."]
+position = Vector2( 53, 127 )
+enabled = true
+cast_to = Vector2( 0, -175 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Heart1" type="Sprite" parent="UI"]
+position = Vector2( 40, 40 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+
+[node name="Heart2" type="Sprite" parent="UI"]
+position = Vector2( 112, 40 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+
+[node name="Heart3" type="Sprite" parent="UI"]
+position = Vector2( 184, 40 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+
+[node name="PowerDrop" type="Sprite" parent="UI"]
+position = Vector2( 1000, 40 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 9 )
+
+[node name="PowerDropCount" type="Label" parent="UI"]
+margin_left = 898.0
+margin_top = 8.0
+margin_right = 962.0
+margin_bottom = 72.0
+grow_horizontal = 0
+grow_vertical = 0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 10 )]
+
+[node name="Crown" type="Sprite" parent="."]
+position = Vector2( -2, -150 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 11 )

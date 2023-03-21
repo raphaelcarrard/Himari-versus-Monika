@@ -1,0 +1,20 @@
+[gd_scene format=2]
+
+[node name="Particles2D" type="CPUParticles2D"]
+z_index = -5
+emitting = false
+amount = 24
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.44
+emission_shape = 1
+emission_sphere_radius = 8.71
+spread = 180.0
+gravity = Vector2( 0, 1000 )
+initial_velocity = 130.12
+initial_velocity_random = 0.18
+scale_amount = 4.0
+color = Color( 1, 0.490196, 0.858824, 1 )
+hue_variation = -0.06
+hue_variation_random = 0.55

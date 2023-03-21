@@ -1,0 +1,96 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Pause.gd" type="Script" id=1]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+pause_mode = 2
+layer = 2
+script = ExtResource( 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 1040.0
+margin_bottom = 64.0
+
+[node name="Control2" type="Control" parent="HBoxContainer"]
+margin_right = 455.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PauseButton" type="Button" parent="HBoxContainer"]
+margin_left = 459.0
+margin_right = 580.0
+margin_bottom = 64.0
+text = "Pause"
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+margin_left = 584.0
+margin_right = 1040.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PopupDialog" type="PopupDialog" parent="."]
+pause_mode = 2
+visible = true
+margin_right = 585.0
+margin_bottom = 585.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupDialog"]
+margin_right = 585.0
+margin_bottom = 585.0
+
+[node name="Control3" type="Control" parent="PopupDialog/HBoxContainer"]
+margin_right = 212.0
+margin_bottom = 585.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupDialog/HBoxContainer"]
+margin_left = 216.0
+margin_right = 369.0
+margin_bottom = 585.0
+
+[node name="Label" type="Label" parent="PopupDialog/HBoxContainer/VBoxContainer"]
+margin_right = 153.0
+margin_bottom = 43.0
+text = "Paused"
+align = 1
+
+[node name="ResumeButton" type="Button" parent="PopupDialog/HBoxContainer/VBoxContainer"]
+margin_top = 47.0
+margin_right = 153.0
+margin_bottom = 96.0
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="PopupDialog/HBoxContainer/VBoxContainer"]
+margin_top = 100.0
+margin_right = 153.0
+margin_bottom = 149.0
+text = "Restart"
+
+[node name="MenuButton" type="Button" parent="PopupDialog/HBoxContainer/VBoxContainer"]
+margin_top = 153.0
+margin_right = 153.0
+margin_bottom = 202.0
+text = "Menu"
+
+[node name="Control6" type="Control" parent="PopupDialog/HBoxContainer/VBoxContainer"]
+margin_top = 206.0
+margin_right = 153.0
+margin_bottom = 585.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control4" type="Control" parent="PopupDialog/HBoxContainer"]
+margin_left = 373.0
+margin_right = 585.0
+margin_bottom = 585.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="HBoxContainer/PauseButton" to="." method="_on_PauseButton_pressed"]
+[connection signal="popup_hide" from="PopupDialog" to="." method="_on_PopupDialog_popup_hide"]
+[connection signal="pressed" from="PopupDialog/HBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="PopupDialog/HBoxContainer/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="PopupDialog/HBoxContainer/VBoxContainer/MenuButton" to="." method="_on_MenuButton_pressed"]

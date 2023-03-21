@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Coke.ogg-6103d185befe6eea46c6b1c7e022ac8f.oggstr"
+
+[deps]
+
+source_file="res://Audio/Coke.ogg"
+dest_files=[ "res://.import/Coke.ogg-6103d185befe6eea46c6b1c7e022ac8f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

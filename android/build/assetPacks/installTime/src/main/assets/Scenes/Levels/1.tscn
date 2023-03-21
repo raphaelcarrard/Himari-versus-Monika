@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/GameLogic.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Level Objects/Drop.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://HurtTileset.tres" type="TileSet" id=4]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Level Objects/Finish.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Level Objects/Monika.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 930, 86.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 68 )
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 1 )
+next_level = 2
+level_name = "1"
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Drops" type="Node" parent="Level"]
+
+[node name="Drop" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 1150, 150 )
+
+[node name="Drop2" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 1210, 150 )
+
+[node name="Drop3" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 1275, 150 )
+
+[node name="Drop4" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 512, 480 )
+
+[node name="Drop5" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 384, 480 )
+
+[node name="Drop6" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 448, 480 )
+
+[node name="Map" type="Node" parent="Level"]
+
+[node name="TileMapPassthrough" type="TileMap" parent="Level/Map"]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( 196625, 3, 0, 196627, 3, 0, 262161, 4, 0, 262163, 4, 0, 393233, 4, 0 )
+
+[node name="TileMap" type="TileMap" parent="Level/Map" groups=["enemybox"]]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 327699, 1, 0, 327701, 1, 0, 327703, 1, 0, 327705, 1, 0, 327707, 1, 0, 327709, 1, 0, 327711, 1, 0, 327713, 1, 0, 393255, 2, 0, 393257, 2, 0, 393259, 2, 0, 393261, 2, 0, 393263, 2, 0, 524283, 1, 0, 524285, 1, 0, 524286, 1, 0, 524287, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458760, 1, 0, 458762, 1, 0, 458763, 1, 0, 458765, 1, 0, 458767, 1, 0, 458769, 1, 0, 458771, 2, 0, 458773, 2, 0, 458775, 2, 0, 458777, 2, 0, 458779, 2, 0, 458781, 2, 0, 458783, 2, 0, 458785, 2, 0, 458793, 2, 0, 458795, 2, 0, 458799, 2, 0, 524307, 2, 0, 524308, 2, 0, 524309, 2, 0, 524310, 2, 0, 524323, 2, 0, 524325, 2, 0, 524327, 2, 0, 524329, 2, 0, 524331, 2, 0, 524333, 2, 0, 524335, 2, 0, 655355, 2, 0, 655356, 8, 0, 655357, 2, 0, 655358, 2, 0, 655359, 2, 0, 589824, 2, 0, 589825, 2, 0, 589826, 2, 0, 589827, 2, 0, 589828, 2, 0, 589829, 2, 0, 589830, 2, 0, 589831, 2, 0, 589832, 8, 0, 589833, 2, 0, 589834, 8, 0, 589835, 2, 0, 589836, 2, 0, 589837, 8, 0, 589838, 2, 0, 589839, 2, 0, 589840, 2, 0, 589841, 2, 0, 589842, 2, 0, 589843, 2, 0, 589844, 2, 0, 589845, 2, 0, 589847, 2, 0, 589849, 2, 0, 589851, 2, 0, 589852, 2, 0, 589853, 2, 0, 589854, 2, 0, 589855, 2, 0, 589856, 2, 0, 589857, 2, 0, 589863, 2, 0, 589865, 2, 0, 589867, 2, 0, 589871, 2, 0, 720891, 8, 0, 720892, 8, 0, 720893, 8, 0, 720894, 8, 0, 720895, 8, 0, 655369, 2, 0, 655372, 2, 0, 655373, 2, 0, 655374, 2, 0, 655375, 2, 0, 655376, 2, 0, 655377, 2, 0, 655378, 2, 0, 655379, 2, 0, 655380, 2, 0, 655381, 2, 0, 655382, 2, 0, 655383, 2, 0, 655393, 2, 0, 655395, 2, 0, 655397, 2, 0, 655399, 2, 0, 655401, 2, 0, 655403, 2, 0, 655405, 2, 0, 655407, 2, 0, 786427, 2, 0, 786428, 8, 0, 786429, 2, 0, 786430, 2, 0, 786431, 2, 0, 720896, 2, 0, 720897, 2, 0, 720898, 2, 0, 720899, 2, 0, 720900, 2, 0, 720901, 2, 0, 720902, 2, 0, 720903, 2, 0, 720907, 2, 0, 720909, 2, 0, 720910, 2, 0, 720911, 2, 0, 720912, 2, 0, 720913, 2, 0, 720916, 2, 0, 720917, 2, 0, 720919, 2, 0, 720921, 2, 0, 720923, 2, 0, 720924, 2, 0, 720925, 2, 0, 720927, 2, 0, 720929, 2, 0, 720931, 2, 0, 720933, 2, 0, 720935, 2, 0, 720937, 2, 0, 720939, 2, 0, 720943, 2, 0, 851963, 8, 0, 851964, 8, 0, 851965, 8, 0, 851966, 8, 0, 851967, 8, 0, 786441, 2, 0, 786444, 2, 0, 786446, 2, 0, 786450, 2, 0, 786452, 2, 0, 786454, 2, 0, 786455, 2, 0, 786459, 2, 0, 786461, 2, 0, 786462, 2, 0, 786463, 2, 0, 786465, 2, 0, 786467, 2, 0, 786469, 2, 0, 786471, 2, 0, 786473, 2, 0, 786475, 2, 0, 786477, 2, 0, 786479, 2, 0, 917499, 2, 0, 917500, 8, 0, 917501, 2, 0, 917502, 2, 0, 917503, 2, 0, 851968, 2, 0, 851969, 2, 0, 851970, 2, 0, 851971, 2, 0, 851972, 2, 0, 851973, 2, 0, 851974, 2, 0, 851975, 2, 0, 851977, 2, 0, 851979, 2, 0, 851980, 2, 0, 851981, 2, 0, 851982, 2, 0, 851983, 2, 0, 851984, 2, 0, 851985, 2, 0, 851986, 2, 0, 851987, 2, 0, 851988, 2, 0, 851990, 2, 0, 851991, 2, 0, 851993, 2, 0, 851995, 2, 0, 851996, 2, 0, 851998, 2, 0, 851999, 2, 0, 852000, 2, 0, 852001, 2, 0, 852003, 2, 0, 852005, 2, 0, 852007, 2, 0, 852009, 2, 0, 852011, 2, 0, 852013, 2, 0, 852015, 2, 0, 983035, 8, 0, 983036, 8, 0, 983037, 8, 0, 983038, 8, 0, 983039, 8, 0 )
+
+[node name="TileMapHurt" type="TileMap" parent="Level/Map" groups=["greenliquid"]]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 393251, 0, 0, 393252, 0, 0, 393253, 0, 0, 393254, 0, 0, 458787, 1, 0, 458788, 1, 0, 458789, 1, 0, 458790, 1, 0 )
+
+[node name="DeathPlane" type="Area2D" parent="Level/Map"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Map/DeathPlane"]
+position = Vector2( -1172, 863.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level/Map/DeathPlane"]
+position = Vector2( 4069, 863.5 )
+shape = SubResource( 1 )
+
+[node name="Finish" parent="Level/Map" instance=ExtResource( 6 )]
+position = Vector2( 2800, 352 )
+
+[node name="Enemies" type="Node" parent="Level"]
+
+[node name="Enemy" parent="Level/Enemies" instance=ExtResource( 7 )]
+position = Vector2( 1000, 440 )
+
+[node name="EnemyBoxes" type="Area2D" parent="Level/Enemies" groups=["enemybox"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Enemies/EnemyBoxes"]
+position = Vector2( 900, 444 )
+shape = SubResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+
+[connection signal="body_entered" from="Level/Map/DeathPlane" to="Player" method="_on_DeathPlane_body_entered"]
+[connection signal="finish" from="Level/Map/Finish" to="." method="_on_Finish_finish"]
+[connection signal="die" from="Player" to="." method="_on_Player_die"]

@@ -1,0 +1,421 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Scripts/GameLogic.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Level Objects/Drop.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://HurtTileset.tres" type="TileSet" id=4]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Level Objects/Finish.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Level Objects/Monika.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/Level/Track.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Level/MovingMiddle.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Level/MovingEnd.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/MovingPlatform.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/Level Objects/Knife.tscn" type="PackedScene" id=12]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1302, 97.25 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15.5, 415.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 58 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 28, 550000 )
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 1 )
+next_level = 8
+level_name = "7"
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Drops" type="Node" parent="Level"]
+
+[node name="Drop" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 500, 800 )
+
+[node name="Drop2" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 500, 1000 )
+
+[node name="Drop3" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 500, 1200 )
+
+[node name="Drop4" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 750, 900 )
+
+[node name="Drop9" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 3597, 213 )
+
+[node name="Drop10" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 3581, 693 )
+
+[node name="Drop11" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 3579, 921 )
+
+[node name="Drop12" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 3581, 449 )
+
+[node name="Drop13" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 3404, 549 )
+
+[node name="Drop14" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 3402, 777 )
+
+[node name="Drop15" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 3404, 305 )
+
+[node name="Drop16" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 3965, 99 )
+
+[node name="Drop17" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 4695, -513 )
+
+[node name="Drop18" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 4826, -658 )
+
+[node name="Drop19" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 4981, -796 )
+
+[node name="Drop5" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 750, 1100 )
+
+[node name="Drop6" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 1129, 1524 )
+
+[node name="Drop7" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 1432, 1524 )
+
+[node name="Drop8" parent="Level/Drops" instance=ExtResource( 2 )]
+position = Vector2( 1750, 1524 )
+
+[node name="Map" type="Node" parent="Level"]
+
+[node name="TileMapPassthrough" type="TileMap" parent="Level/Map"]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( -131009, 3, 0, -131007, 3, 0, -131005, 3, 0, 63, 4, 0, 65, 4, 0, 67, 4, 0, 65600, 1, 0, 131139, 4, 0, 196675, 4, 0, 262211, 4, 0, 327747, 4, 0, 393283, 4, 0, 458819, 4, 0, 524355, 4, 0, 589891, 4, 0, 655427, 4, 0, 720963, 4, 0, 786499, 4, 0, 917571, 4, 0, 983107, 4, 0, 1048643, 4, 0, 1114179, 4, 0, 1179715, 4, 0, 1245251, 4, 0, 1310787, 4, 0, 1376323, 4, 0, 1441833, 3, 0, 1441834, 3, 0, 1441836, 3, 0, 1441859, 4, 0, 1507395, 4, 0, 1572905, 4, 0, 1572906, 4, 0, 1572908, 4, 0, 1638441, 1, 0, 1638443, 1, 0, 1638444, 1, 0, 1638467, 4, 0, 1704003, 4, 0, 1769539, 4, 0, 1835075, 4, 0, 1900611, 4, 0, 1966147, 4, 0, 2031683, 4, 0 )
+
+[node name="TileMap" type="TileMap" parent="Level/Map" groups=["enemybox"]]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -917423, 1, 0, -917421, 1, 0, -917419, 1, 0, -917417, 1, 0, -917415, 1, 0, -786351, 2, 0, -786349, 2, 0, -786348, 2, 0, -786347, 2, 0, -786346, 2, 0, -786345, 2, 0, -786344, 2, 0, -786343, 2, 0, -720815, 2, 0, -720813, 2, 0, -720811, 2, 0, -720810, 2, 0, -720809, 2, 0, -720808, 2, 0, -720807, 2, 0, -655279, 2, 0, -655277, 2, 0, -655275, 2, 0, -655274, 2, 0, -655271, 2, 0, -589743, 2, 0, -589741, 2, 0, -589739, 2, 0, -589738, 2, 0, -589736, 2, 0, -524207, 2, 0, -524205, 2, 0, -524203, 2, 0, -524202, 2, 0, -524200, 2, 0, -524199, 2, 0, -458671, 2, 0, -458670, 2, 0, -458669, 2, 0, -458667, 2, 0, -458666, 2, 0, -458664, 2, 0, -458663, 2, 0, -393135, 2, 0, -393134, 2, 0, -393133, 2, 0, -393131, 2, 0, -393130, 2, 0, -393128, 2, 0, -393127, 2, 0, -327599, 2, 0, -327598, 2, 0, -327597, 2, 0, -327595, 2, 0, -327594, 2, 0, -327592, 2, 0, -327591, 2, 0, -262063, 2, 0, -262062, 2, 0, -262061, 2, 0, -262059, 2, 0, -262058, 2, 0, -262056, 2, 0, -262055, 2, 0, -196527, 2, 0, -196526, 2, 0, -196525, 2, 0, -196523, 2, 0, -196522, 2, 0, -196520, 2, 0, -196519, 2, 0, -130991, 2, 0, -130990, 2, 0, -130989, 2, 0, -130987, 2, 0, -130986, 2, 0, -130984, 2, 0, -130983, 2, 0, -65455, 2, 0, -65454, 2, 0, -65453, 2, 0, -65451, 2, 0, -65450, 2, 0, -65448, 2, 0, -65447, 2, 0, 81, 2, 0, 82, 2, 0, 83, 2, 0, 85, 2, 0, 86, 2, 0, 88, 2, 0, 89, 2, 0, 65596, 1, 0, 65598, 1, 0, 65600, 1, 0, 65617, 2, 0, 65618, 2, 0, 65619, 2, 0, 65621, 2, 0, 65622, 2, 0, 65624, 2, 0, 65625, 2, 0, 131137, 4, 0, 131153, 2, 0, 131154, 2, 0, 131155, 2, 0, 131157, 2, 0, 131158, 2, 0, 131160, 2, 0, 131161, 2, 0, 196668, 2, 0, 196670, 2, 0, 196672, 2, 0, 196673, 4, 0, 196689, 2, 0, 196690, 2, 0, 196691, 2, 0, 196693, 2, 0, 196694, 2, 0, 196696, 2, 0, 196697, 2, 0, 262206, 2, 0, 262209, 4, 0, 262225, 2, 0, 262226, 2, 0, 262227, 2, 0, 262229, 2, 0, 262230, 2, 0, 262232, 2, 0, 262233, 2, 0, 327740, 2, 0, 327742, 2, 0, 327744, 2, 0, 327745, 4, 0, 327761, 2, 0, 327762, 2, 0, 327763, 2, 0, 327765, 2, 0, 327766, 2, 0, 327768, 2, 0, 327769, 2, 0, 393278, 2, 0, 393280, 2, 0, 393281, 4, 0, 393297, 2, 0, 393298, 2, 0, 393299, 2, 0, 393301, 2, 0, 393302, 2, 0, 393304, 2, 0, 393305, 2, 0, 458812, 2, 0, 458814, 2, 0, 458816, 2, 0, 458817, 4, 0, 458833, 2, 0, 458834, 2, 0, 458835, 2, 0, 458837, 2, 0, 458838, 2, 0, 458840, 2, 0, 458841, 2, 0, 589820, 1, 0, 589822, 1, 0, 589823, 1, 0, 524289, 1, 0, 524290, 1, 0, 524349, 2, 0, 524350, 2, 0, 524352, 2, 0, 524353, 4, 0, 524369, 2, 0, 524371, 2, 0, 524373, 2, 0, 524374, 2, 0, 524376, 2, 0, 524377, 2, 0, 589884, 2, 0, 589885, 2, 0, 589888, 2, 0, 589889, 4, 0, 589905, 2, 0, 589907, 2, 0, 589909, 2, 0, 589910, 2, 0, 589912, 2, 0, 589913, 2, 0, 720892, 2, 0, 720893, 2, 0, 720894, 2, 0, 720895, 2, 0, 655360, 2, 0, 655362, 2, 0, 655420, 2, 0, 655421, 2, 0, 655423, 2, 0, 655424, 2, 0, 655425, 4, 0, 655441, 2, 0, 655443, 2, 0, 655445, 2, 0, 655446, 2, 0, 655448, 2, 0, 655449, 2, 0, 786431, 2, 0, 720896, 2, 0, 720956, 2, 0, 720957, 2, 0, 720959, 2, 0, 720960, 2, 0, 720961, 4, 0, 720977, 2, 0, 720979, 2, 0, 720981, 2, 0, 720982, 2, 0, 720984, 2, 0, 720985, 2, 0, 851964, 2, 0, 851965, 2, 0, 851966, 2, 0, 786432, 2, 0, 786434, 2, 0, 786492, 2, 0, 786493, 2, 0, 786495, 2, 0, 786496, 2, 0, 786497, 4, 0, 786513, 2, 0, 786515, 2, 0, 786517, 2, 0, 786518, 2, 0, 786520, 2, 0, 786521, 2, 0, 917500, 2, 0, 917502, 2, 0, 851968, 2, 0, 852028, 2, 0, 852029, 2, 0, 852031, 2, 0, 852032, 2, 0, 852033, 4, 0, 852049, 2, 0, 852051, 2, 0, 852053, 2, 0, 852054, 2, 0, 852056, 2, 0, 852057, 2, 0, 983036, 2, 0, 983038, 2, 0, 917504, 2, 0, 917506, 2, 0, 917564, 2, 0, 917565, 2, 0, 917567, 2, 0, 917569, 4, 0, 917585, 2, 0, 917587, 2, 0, 917589, 2, 0, 917590, 2, 0, 917592, 2, 0, 917593, 2, 0, 1048572, 2, 0, 1048573, 2, 0, 1048574, 2, 0, 983040, 2, 0, 983100, 2, 0, 983101, 2, 0, 983103, 2, 0, 983104, 2, 0, 983105, 4, 0, 983121, 2, 0, 983123, 2, 0, 983125, 2, 0, 983127, 2, 0, 983128, 2, 0, 983129, 2, 0, 1114108, 2, 0, 1114110, 2, 0, 1048576, 2, 0, 1048578, 2, 0, 1048636, 2, 0, 1048637, 2, 0, 1048639, 2, 0, 1048640, 2, 0, 1048641, 4, 0, 1048659, 2, 0, 1048661, 2, 0, 1048663, 2, 0, 1048664, 2, 0, 1048665, 2, 0, 1179644, 2, 0, 1179645, 2, 0, 1179646, 2, 0, 1114112, 2, 0, 1114158, 1, 0, 1114160, 1, 0, 1114162, 1, 0, 1114164, 1, 0, 1114172, 2, 0, 1114173, 2, 0, 1114175, 2, 0, 1114176, 2, 0, 1114177, 4, 0, 1114193, 2, 0, 1114195, 2, 0, 1114197, 2, 0, 1114199, 2, 0, 1114200, 2, 0, 1114201, 2, 0, 1245180, 2, 0, 1245181, 2, 0, 1245182, 2, 0, 1179648, 2, 0, 1179650, 2, 0, 1179708, 2, 0, 1179709, 2, 0, 1179711, 2, 0, 1179712, 2, 0, 1179713, 4, 0, 1179729, 2, 0, 1179731, 2, 0, 1179733, 2, 0, 1179735, 2, 0, 1179736, 2, 0, 1179737, 2, 0, 1310716, 2, 0, 1310717, 2, 0, 1310718, 2, 0, 1245184, 2, 0, 1245230, 2, 0, 1245232, 2, 0, 1245234, 2, 0, 1245236, 2, 0, 1245244, 2, 0, 1245245, 2, 0, 1245247, 2, 0, 1245248, 2, 0, 1245249, 4, 0, 1245265, 2, 0, 1245267, 2, 0, 1245269, 2, 0, 1245271, 2, 0, 1245272, 2, 0, 1245273, 2, 0, 1376252, 2, 0, 1376253, 2, 0, 1376254, 2, 0, 1310720, 2, 0, 1310722, 2, 0, 1310766, 2, 0, 1310780, 2, 0, 1310781, 2, 0, 1310783, 2, 0, 1310784, 2, 0, 1310785, 4, 0, 1310801, 2, 0, 1310803, 2, 0, 1310805, 2, 0, 1310807, 2, 0, 1310808, 2, 0, 1310809, 2, 0, 1441788, 2, 0, 1441789, 2, 0, 1441790, 2, 0, 1376256, 2, 0, 1376304, 2, 0, 1376306, 2, 0, 1376308, 2, 0, 1376316, 2, 0, 1376317, 2, 0, 1376319, 2, 0, 1376320, 2, 0, 1376321, 4, 0, 1376337, 2, 0, 1376339, 2, 0, 1376341, 2, 0, 1376343, 2, 0, 1376344, 2, 0, 1376345, 2, 0, 1507324, 2, 0, 1507325, 2, 0, 1507326, 2, 0, 1441792, 2, 0, 1441794, 2, 0, 1441838, 2, 0, 1441840, 2, 0, 1441842, 2, 0, 1441844, 2, 0, 1441852, 2, 0, 1441853, 2, 0, 1441855, 2, 0, 1441856, 2, 0, 1441857, 4, 0, 1441873, 2, 0, 1441875, 2, 0, 1441877, 2, 0, 1441879, 2, 0, 1441880, 2, 0, 1441881, 2, 0, 1572861, 2, 0, 1572862, 2, 0, 1507328, 2, 0, 1507374, 2, 0, 1507376, 2, 0, 1507378, 2, 0, 1507380, 2, 0, 1507388, 2, 0, 1507389, 2, 0, 1507390, 2, 0, 1507392, 2, 0, 1507393, 4, 0, 1507409, 2, 0, 1507411, 2, 0, 1507413, 2, 0, 1507415, 2, 0, 1507416, 2, 0, 1638396, 2, 0, 1638398, 2, 0, 1572864, 2, 0, 1572866, 2, 0, 1572910, 2, 0, 1572912, 2, 0, 1572914, 2, 0, 1572916, 2, 0, 1572924, 2, 0, 1572925, 2, 0, 1572926, 2, 0, 1572928, 2, 0, 1572929, 4, 0, 1572945, 2, 0, 1572947, 2, 0, 1572949, 2, 0, 1572951, 2, 0, 1572952, 2, 0, 1572953, 2, 0, 1703932, 2, 0, 1703934, 2, 0, 1638400, 2, 0, 1638431, 1, 0, 1638433, 1, 0, 1638435, 1, 0, 1638437, 1, 0, 1638439, 1, 0, 1638441, 1, 0, 1638443, 1, 0, 1638444, 1, 0, 1638446, 2, 0, 1638448, 2, 0, 1638450, 2, 0, 1638452, 2, 0, 1638460, 2, 0, 1638461, 2, 0, 1638462, 2, 0, 1638464, 2, 0, 1638465, 4, 0, 1638481, 2, 0, 1638483, 2, 0, 1638485, 2, 0, 1638487, 2, 0, 1638488, 2, 0, 1638489, 2, 0, 1769468, 2, 0, 1769470, 2, 0, 1703936, 2, 0, 1703938, 2, 0, 1703982, 2, 0, 1703984, 2, 0, 1703986, 2, 0, 1703987, 2, 0, 1703996, 2, 0, 1703997, 2, 0, 1703998, 2, 0, 1704000, 2, 0, 1704001, 4, 0, 1704017, 2, 0, 1704019, 2, 0, 1704021, 2, 0, 1704023, 2, 0, 1704024, 2, 0, 1704025, 2, 0, 1835004, 2, 0, 1835006, 2, 0, 1769472, 2, 0, 1769503, 2, 0, 1769505, 2, 0, 1769506, 2, 0, 1769507, 2, 0, 1769508, 2, 0, 1769509, 2, 0, 1769510, 2, 0, 1769512, 2, 0, 1769513, 2, 0, 1769514, 2, 0, 1769516, 2, 0, 1769518, 2, 0, 1769520, 2, 0, 1769522, 2, 0, 1769523, 2, 0, 1769524, 2, 0, 1769532, 2, 0, 1769533, 2, 0, 1769534, 2, 0, 1769536, 2, 0, 1769537, 4, 0, 1769553, 2, 0, 1769555, 2, 0, 1769558, 2, 0, 1769559, 2, 0, 1769560, 2, 0, 1769561, 2, 0, 1900540, 2, 0, 1900542, 2, 0, 1835008, 2, 0, 1835010, 2, 0, 1835041, 2, 0, 1835046, 2, 0, 1835047, 2, 0, 1835048, 2, 0, 1835050, 2, 0, 1835054, 2, 0, 1835056, 2, 0, 1835058, 2, 0, 1835059, 2, 0, 1835060, 2, 0, 1835069, 2, 0, 1835070, 2, 0, 1835072, 2, 0, 1835073, 4, 0, 1835089, 2, 0, 1835091, 2, 0, 1835093, 2, 0, 1835094, 2, 0, 1835096, 2, 0, 1835097, 2, 0, 1966076, 2, 0, 1966078, 2, 0, 1900544, 2, 0, 1900575, 2, 0, 1900577, 2, 0, 1900579, 2, 0, 1900580, 2, 0, 1900581, 2, 0, 1900582, 2, 0, 1900583, 2, 0, 1900584, 2, 0, 1900586, 2, 0, 1900588, 2, 0, 1900590, 2, 0, 1900592, 2, 0, 1900594, 2, 0, 1900595, 2, 0, 1900596, 2, 0, 1900604, 2, 0, 1900606, 2, 0, 1900608, 2, 0, 1900609, 4, 0, 1900625, 2, 0, 1900627, 2, 0, 1900629, 2, 0, 1900630, 2, 0, 1900632, 2, 0, 1900633, 2, 0, 1966080, 2, 0, 1966082, 2, 0, 1966113, 2, 0, 1966120, 2, 0, 1966121, 2, 0, 1966122, 2, 0, 1966126, 2, 0, 1966128, 2, 0, 1966130, 2, 0, 1966131, 2, 0, 1966132, 2, 0, 1966140, 2, 0, 1966142, 2, 0, 1966144, 2, 0, 1966145, 4, 0, 1966161, 2, 0, 1966163, 2, 0, 1966164, 2, 0, 1966165, 2, 0, 1966168, 2, 0, 1966169, 2, 0, 2097148, 2, 0, 2097149, 2, 0, 2097150, 2, 0, 2097151, 2, 0, 2031616, 2, 0, 2031618, 2, 0, 2031647, 2, 0, 2031649, 2, 0, 2031650, 2, 0, 2031651, 2, 0, 2031652, 2, 0, 2031653, 2, 0, 2031654, 2, 0, 2031655, 2, 0, 2031656, 2, 0, 2031657, 2, 0, 2031658, 2, 0, 2031660, 2, 0, 2031662, 2, 0, 2031664, 2, 0, 2031666, 2, 0, 2031667, 2, 0, 2031668, 2, 0, 2031676, 2, 0, 2031678, 2, 0, 2031679, 2, 0, 2031680, 2, 0, 2031681, 4, 0, 2031697, 2, 0, 2031699, 2, 0, 2031700, 2, 0, 2031701, 2, 0, 2031702, 2, 0, 2031703, 2, 0, 2031704, 2, 0, 2031705, 2, 0 )
+
+[node name="TileMapHurt" type="TileMap" parent="Level/Map" groups=["greenliquid"]]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 1769476, 0, 0, 1769477, 0, 0, 1769478, 0, 0, 1769479, 0, 0, 1769480, 0, 0, 1769481, 0, 0, 1769482, 0, 0, 1769483, 0, 0, 1769484, 0, 0, 1769485, 0, 0, 1769486, 0, 0, 1769487, 0, 0, 1769488, 0, 0, 1769489, 0, 0, 1769490, 0, 0, 1769491, 0, 0, 1769492, 0, 0, 1769493, 0, 0, 1769494, 0, 0, 1769495, 0, 0, 1769496, 0, 0, 1769497, 0, 0, 1769498, 0, 0, 1769499, 0, 0, 1769500, 0, 0, 1769501, 0, 0, 1769502, 0, 0, 1835012, 1, 0, 1835013, 1, 0, 1835014, 1, 0, 1835015, 1, 0, 1835016, 1, 0, 1835017, 1, 0, 1835018, 1, 0, 1835019, 1, 0, 1835020, 1, 0, 1835021, 1, 0, 1835022, 1, 0, 1835023, 1, 0, 1835024, 1, 0, 1835025, 1, 0, 1835026, 1, 0, 1835027, 1, 0, 1835028, 1, 0, 1835029, 1, 0, 1835030, 1, 0, 1835031, 1, 0, 1835032, 1, 0, 1835033, 1, 0, 1835034, 1, 0, 1835035, 1, 0, 1835036, 1, 0, 1835037, 1, 0, 1835038, 1, 0, 1900548, 1, 0, 1900549, 1, 0, 1900550, 1, 0, 1900551, 1, 0, 1900552, 1, 0, 1900553, 1, 0, 1900554, 1, 0, 1900555, 1, 0, 1900556, 1, 0, 1900557, 1, 0, 1900558, 1, 0, 1900559, 1, 0, 1900560, 1, 0, 1900561, 1, 0, 1900562, 1, 0, 1900563, 1, 0, 1900564, 1, 0, 1900565, 1, 0, 1900566, 1, 0, 1900567, 1, 0, 1900568, 1, 0, 1900569, 1, 0, 1900570, 1, 0, 1900571, 1, 0, 1900572, 1, 0, 1900573, 1, 0, 1900574, 1, 0, 1966084, 1, 0, 1966085, 1, 0, 1966086, 1, 0, 1966087, 1, 0, 1966088, 1, 0, 1966089, 1, 0, 1966090, 1, 0, 1966091, 1, 0, 1966092, 1, 0, 1966093, 1, 0, 1966094, 1, 0, 1966095, 1, 0, 1966096, 1, 0, 1966097, 1, 0, 1966098, 1, 0, 1966099, 1, 0, 1966100, 1, 0, 1966101, 1, 0, 1966102, 1, 0, 1966103, 1, 0, 1966104, 1, 0, 1966105, 1, 0, 1966106, 1, 0, 1966107, 1, 0, 1966108, 1, 0, 1966109, 1, 0, 1966110, 1, 0, 2031620, 1, 0, 2031621, 1, 0, 2031622, 1, 0, 2031623, 1, 0, 2031624, 1, 0, 2031625, 1, 0, 2031626, 1, 0, 2031627, 1, 0, 2031628, 1, 0, 2031629, 1, 0, 2031630, 1, 0, 2031631, 1, 0, 2031632, 1, 0, 2031633, 1, 0, 2031634, 1, 0, 2031635, 1, 0, 2031636, 1, 0, 2031637, 1, 0, 2031638, 1, 0, 2031639, 1, 0, 2031640, 1, 0, 2031641, 1, 0, 2031642, 1, 0, 2031643, 1, 0, 2031644, 1, 0, 2031645, 1, 0, 2031646, 1, 0, 2097156, 1, 0, 2097157, 1, 0, 2097158, 1, 0, 2097159, 1, 0, 2097160, 1, 0, 2097161, 1, 0, 2097162, 1, 0, 2097163, 1, 0, 2097164, 1, 0, 2097165, 1, 0, 2097166, 1, 0, 2097167, 1, 0, 2097168, 1, 0, 2097169, 1, 0, 2097170, 1, 0, 2097171, 1, 0, 2097172, 1, 0, 2097173, 1, 0, 2097174, 1, 0, 2097175, 1, 0, 2097176, 1, 0, 2097177, 1, 0, 2097178, 1, 0, 2097179, 1, 0, 2097180, 1, 0, 2097181, 1, 0, 2097182, 1, 0 )
+
+[node name="DeathPlane" type="Area2D" parent="Level/Map"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level/Map/DeathPlane"]
+position = Vector2( -1555, 1227 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Level/Map/DeathPlane"]
+position = Vector2( 4334, 2184 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Level/Map/DeathPlane"]
+position = Vector2( 6644, 1253 )
+shape = SubResource( 3 )
+
+[node name="Finish" parent="Level/Map" instance=ExtResource( 6 )]
+position = Vector2( 5748, -864 )
+
+[node name="Enemies" type="Node" parent="Level"]
+
+[node name="Enemy" parent="Level/Enemies" instance=ExtResource( 7 )]
+position = Vector2( 3000, 1075 )
+
+[node name="Enemy13" parent="Level/Enemies" instance=ExtResource( 7 )]
+position = Vector2( 2696, 1339 )
+
+[node name="Enemy14" parent="Level/Enemies" instance=ExtResource( 7 )]
+position = Vector2( 3894, 60 )
+
+[node name="Enemy2" parent="Level/Enemies" instance=ExtResource( 7 )]
+position = Vector2( 2082, 1590 )
+
+[node name="Enemy3" parent="Level/Enemies" instance=ExtResource( 12 )]
+position = Vector2( 352, 808 )
+
+[node name="Enemy4" parent="Level/Enemies" instance=ExtResource( 12 )]
+position = Vector2( 352, 1000 )
+
+[node name="Enemy5" parent="Level/Enemies" instance=ExtResource( 12 )]
+position = Vector2( 352, 1200 )
+
+[node name="Enemy6" parent="Level/Enemies" instance=ExtResource( 12 )]
+position = Vector2( 3642, 694 )
+
+[node name="Enemy9" parent="Level/Enemies" instance=ExtResource( 12 )]
+position = Vector2( 3637, 924 )
+
+[node name="Enemy7" parent="Level/Enemies" instance=ExtResource( 12 )]
+position = Vector2( 3643, 458 )
+
+[node name="Enemy8" parent="Level/Enemies" instance=ExtResource( 12 )]
+position = Vector2( 3655, 217 )
+
+[node name="Enemy10" parent="Level/Enemies" instance=ExtResource( 12 )]
+position = Vector2( 4894, -501 )
+
+[node name="Enemy11" parent="Level/Enemies" instance=ExtResource( 12 )]
+position = Vector2( 4900, -659 )
+
+[node name="Enemy12" parent="Level/Enemies" instance=ExtResource( 12 )]
+position = Vector2( 4900, -791 )
+
+[node name="EnemyBoxes" type="Area2D" parent="Level/Enemies" groups=["enemybox"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Enemies/EnemyBoxes"]
+position = Vector2( 804.5, 1143.5 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Level/Enemies/EnemyBoxes"]
+position = Vector2( 3400, 550 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Level/Enemies/EnemyBoxes"]
+position = Vector2( 4594, -568 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Level/Enemies/EnemyBoxes"]
+position = Vector2( 5174, -412 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level/Enemies/EnemyBoxes"]
+position = Vector2( 1990, 1605 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Level/Enemies/EnemyBoxes"]
+position = Vector2( 2930, 1605 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Level/Enemies/EnemyBoxes"]
+position = Vector2( 2620, 1350 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Level/Enemies/EnemyBoxes"]
+position = Vector2( 2935, 1350 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Level/Enemies/EnemyBoxes"]
+position = Vector2( 2940, 1091 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Level/Enemies/EnemyBoxes"]
+position = Vector2( 3457, 1094 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Level/Enemies/EnemyBoxes"]
+position = Vector2( 3833, 78 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Level/Enemies/EnemyBoxes"]
+position = Vector2( 4229, 81 )
+shape = SubResource( 4 )
+
+[node name="MovingPlatform" type="Node2D" parent="Level"]
+position = Vector2( 525, 700 )
+script = ExtResource( 11 )
+
+[node name="Track" type="TextureRect" parent="Level/MovingPlatform"]
+margin_left = -256.0
+margin_top = -32.0
+margin_right = 256.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 32 )
+texture = ExtResource( 8 )
+stretch_mode = 2
+
+[node name="MovePos1" type="Node2D" parent="Level/MovingPlatform"]
+position = Vector2( 0, -125 )
+
+[node name="MovePos2" type="Node2D" parent="Level/MovingPlatform"]
+position = Vector2( 0, 900 )
+
+[node name="Platform" type="KinematicBody2D" parent="Level/MovingPlatform"]
+scale = Vector2( 4, 1e-05 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/MovingPlatform/Platform"]
+position = Vector2( 0, 50000 )
+shape = SubResource( 1 )
+
+[node name="MovingEnd" type="Sprite" parent="Level/MovingPlatform/Platform"]
+position = Vector2( 24, -50000 )
+scale = Vector2( 1, 168750 )
+texture = ExtResource( 10 )
+
+[node name="MovingEnd2" type="Sprite" parent="Level/MovingPlatform/Platform"]
+position = Vector2( -24, -50000 )
+scale = Vector2( -1.00627, 168750 )
+texture = ExtResource( 10 )
+
+[node name="Middle" type="Sprite" parent="Level/MovingPlatform/Platform"]
+position = Vector2( -8, -50000 )
+scale = Vector2( 1, 168750 )
+texture = ExtResource( 9 )
+
+[node name="Middle2" type="Sprite" parent="Level/MovingPlatform/Platform"]
+position = Vector2( 8, -50000 )
+scale = Vector2( 1, 168750 )
+texture = ExtResource( 9 )
+
+[node name="MovingPlatform2" type="Node2D" parent="Level"]
+position = Vector2( 1500, 1600 )
+script = ExtResource( 11 )
+pause_amount = 5.0
+
+[node name="Track" type="TextureRect" parent="Level/MovingPlatform2"]
+margin_left = -256.0
+margin_top = -32.0
+margin_right = 256.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 32 )
+texture = ExtResource( 8 )
+stretch_mode = 2
+
+[node name="MovePos1" type="Node2D" parent="Level/MovingPlatform2"]
+position = Vector2( -561, 0 )
+
+[node name="MovePos2" type="Node2D" parent="Level/MovingPlatform2"]
+position = Vector2( 400, 0 )
+
+[node name="Platform" type="KinematicBody2D" parent="Level/MovingPlatform2"]
+scale = Vector2( 4, 1e-05 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/MovingPlatform2/Platform"]
+position = Vector2( 0, 50000 )
+shape = SubResource( 1 )
+
+[node name="MovingEnd" type="Sprite" parent="Level/MovingPlatform2/Platform"]
+position = Vector2( 24, -50000 )
+scale = Vector2( 1, 168750 )
+texture = ExtResource( 10 )
+
+[node name="MovingEnd2" type="Sprite" parent="Level/MovingPlatform2/Platform"]
+position = Vector2( -24, -50000 )
+scale = Vector2( -1.00627, 168750 )
+texture = ExtResource( 10 )
+
+[node name="Middle" type="Sprite" parent="Level/MovingPlatform2/Platform"]
+position = Vector2( -8, -50000 )
+scale = Vector2( 1, 168750 )
+texture = ExtResource( 9 )
+
+[node name="Middle2" type="Sprite" parent="Level/MovingPlatform2/Platform"]
+position = Vector2( 8, -50000 )
+scale = Vector2( 1, 168750 )
+texture = ExtResource( 9 )
+
+[node name="MovingPlatform3" type="Node2D" parent="Level"]
+position = Vector2( 3580, 1100 )
+script = ExtResource( 11 )
+
+[node name="Track" type="TextureRect" parent="Level/MovingPlatform3"]
+margin_left = -256.0
+margin_top = -32.0
+margin_right = 256.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 32 )
+texture = ExtResource( 8 )
+stretch_mode = 2
+
+[node name="MovePos1" type="Node2D" parent="Level/MovingPlatform3"]
+position = Vector2( 0, -1075 )
+
+[node name="MovePos2" type="Node2D" parent="Level/MovingPlatform3"]
+position = Vector2( 0, 100 )
+
+[node name="Platform" type="KinematicBody2D" parent="Level/MovingPlatform3"]
+scale = Vector2( 4, 1e-05 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/MovingPlatform3/Platform"]
+position = Vector2( 0, 50000 )
+shape = SubResource( 1 )
+
+[node name="MovingEnd" type="Sprite" parent="Level/MovingPlatform3/Platform"]
+position = Vector2( 24, -50000 )
+scale = Vector2( 1, 168750 )
+texture = ExtResource( 10 )
+
+[node name="MovingEnd2" type="Sprite" parent="Level/MovingPlatform3/Platform"]
+position = Vector2( -24, -50000 )
+scale = Vector2( -1.00627, 168750 )
+texture = ExtResource( 10 )
+
+[node name="Middle" type="Sprite" parent="Level/MovingPlatform3/Platform"]
+position = Vector2( -8, -50000 )
+scale = Vector2( 1, 168750 )
+texture = ExtResource( 9 )
+
+[node name="Middle2" type="Sprite" parent="Level/MovingPlatform3/Platform"]
+position = Vector2( 8, -50000 )
+scale = Vector2( 1, 168750 )
+texture = ExtResource( 9 )
+
+[node name="MovingPlatform4" type="Node2D" parent="Level"]
+position = Vector2( 4900, -750 )
+script = ExtResource( 11 )
+pause_amount = 5.0
+
+[node name="Track" type="TextureRect" parent="Level/MovingPlatform4"]
+margin_left = -256.0
+margin_top = -32.0
+margin_right = 256.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 32 )
+texture = ExtResource( 8 )
+stretch_mode = 2
+
+[node name="MovePos1" type="Node2D" parent="Level/MovingPlatform4"]
+position = Vector2( 268, -86 )
+
+[node name="MovePos2" type="Node2D" parent="Level/MovingPlatform4"]
+position = Vector2( -432, 478 )
+
+[node name="Platform" type="KinematicBody2D" parent="Level/MovingPlatform4"]
+scale = Vector2( 4, 1e-05 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/MovingPlatform4/Platform"]
+position = Vector2( 0, 50000 )
+shape = SubResource( 1 )
+
+[node name="MovingEnd" type="Sprite" parent="Level/MovingPlatform4/Platform"]
+position = Vector2( 24, -50000 )
+scale = Vector2( 1, 168750 )
+texture = ExtResource( 10 )
+
+[node name="MovingEnd2" type="Sprite" parent="Level/MovingPlatform4/Platform"]
+position = Vector2( -24, -50000 )
+scale = Vector2( -1.00627, 168750 )
+texture = ExtResource( 10 )
+
+[node name="Middle" type="Sprite" parent="Level/MovingPlatform4/Platform"]
+position = Vector2( -8, -50000 )
+scale = Vector2( 1, 168750 )
+texture = ExtResource( 9 )
+
+[node name="Middle2" type="Sprite" parent="Level/MovingPlatform4/Platform"]
+position = Vector2( 8, -50000 )
+scale = Vector2( 1, 168750 )
+texture = ExtResource( 9 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( -1, 480 )
+
+[connection signal="body_entered" from="Level/Map/DeathPlane" to="Player" method="_on_DeathPlane_body_entered"]
+[connection signal="finish" from="Level/Map/Finish" to="." method="_on_Finish_finish"]
+[connection signal="die" from="Player" to="." method="_on_Player_die"]

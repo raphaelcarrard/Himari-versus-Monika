@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Seina - Witch's Diary.ogg-0d0fdbe3f6e10500eb791a0faedbee2b.oggstr"
+
+[deps]
+
+source_file="res://Audio/Seina - Witch's Diary.ogg"
+dest_files=[ "res://.import/Seina - Witch's Diary.ogg-0d0fdbe3f6e10500eb791a0faedbee2b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
